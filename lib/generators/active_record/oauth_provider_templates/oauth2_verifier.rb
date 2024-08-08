@@ -1,4 +1,4 @@
-require 'cgi'
+require 'addressable/uri'
 
 class Oauth2Verifier < OauthToken
   validates_presence_of :user
@@ -22,7 +22,7 @@ class Oauth2Verifier < OauthToken
 
   def to_query
     q = "code=#{token}"
-    q << "&state=#{CGI.escape(state)}" if @state
+    q << "&state=#{Addressable::URI.escape(state)}" if @state
     q
   end
 

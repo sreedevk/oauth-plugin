@@ -1,5 +1,5 @@
 require 'uri'
-require 'cgi'
+require 'addressable/uri'
 
 module OAuth
   module Provider
@@ -70,7 +70,7 @@ module OAuth
 
       def encode_response
         response.map do |k, v|
-          [CGI.escape(k.to_s),CGI.escape(v)] * "="
+          [Addressable::URI.escape(k.to_s),Addressable::URI.escape(v)] * "="
         end * "&"
       end
 

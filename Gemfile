@@ -14,6 +14,7 @@ platforms :ruby do
     gem 'rb-inotify', '>= 0.5.1'
     gem 'libnotify',  '~> 0.1.3'
   end
+  gem 'addressable', '~> 2.7'
 end
 
 platforms :jruby do
